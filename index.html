@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Mastermind</title>
+        <link rel="stylesheet" href="style.css" />
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <dialog id="error-modal">
+            <button onfocus="this.blur()">&times;</button>
+            <p>Please fill in dots for current row to continue.</p>
+        </dialog>
+
+        <h1>Mastermind</h1>
+
+        <div id="flex-container">
+            <div class="row">
+                <div class="toggle toggle-white" data-value="0"></div>
+                <div class="dot" data-color=""></div>
+                <div class="dot" data-color=""></div>
+                <div class="dot" data-color=""></div>
+                <div class="dot" data-color=""></div>
+                <div class="toggle toggle-red" data-value="0"></div>
+            </div>
+            <div class="row">
+                <div class="toggle toggle-white" data-value="0"></div>
+                <div class="dot" data-color=""></div>
+                <div class="dot" data-color=""></div>
+                <div class="dot" data-color=""></div>
+                <div class="dot" data-color=""></div>
+                <div class="toggle toggle-red" data-value="0"></div>
+            </div>
+            <div class="row">
+                <div class="toggle toggle-white" data-value="0"></div>
+                <div class="dot" data-color=""></div>
+                <div class="dot" data-color=""></div>
+                <div class="dot" data-color=""></div>
+                <div class="dot" data-color=""></div>
+                <div class="toggle toggle-red" data-value="0"></div>
+            </div>
+            <div class="row">
+                <div class="toggle toggle-white" data-value="0"></div>
+                <div class="dot" data-color=""></div>
+                <div class="dot" data-color=""></div>
+                <div class="dot" data-color=""></div>
+                <div class="dot" data-color=""></div>
+                <div class="toggle toggle-red" data-value="0"></div>
+            </div>
+            <div class="row">
+                <div class="toggle toggle-white" data-value="0"></div>
+                <div class="dot" data-color=""></div>
+                <div class="dot" data-color=""></div>
+                <div class="dot" data-color=""></div>
+                <div class="dot" data-color=""></div>
+                <div class="toggle toggle-red" data-value="0"></div>
+            </div>
+            <div class="row">
+                <div class="toggle toggle-white" data-value="0"></div>
+                <div class="dot" data-color=""></div>
+                <div class="dot" data-color=""></div>
+                <div class="dot" data-color=""></div>
+                <div class="dot" data-color=""></div>
+                <div class="toggle toggle-red" data-value="0"></div>
+            </div>
+            <div class="row">
+                <div class="toggle toggle-white" data-value="0"></div>
+                <div class="dot" data-color=""></div>
+                <div class="dot" data-color=""></div>
+                <div class="dot" data-color=""></div>
+                <div class="dot" data-color=""></div>
+                <div class="toggle toggle-red" data-value="0"></div>
+            </div>
+            <div class="row">
+                <div class="toggle toggle-white" data-value="0"></div>
+                <div class="dot" data-color=""></div>
+                <div class="dot" data-color=""></div>
+                <div class="dot" data-color=""></div>
+                <div class="dot" data-color=""></div>
+                <div class="toggle toggle-red" data-value="0"></div>
+            </div>
+            <div class="row">
+                <div class="toggle toggle-white" data-value="0"></div>
+                <div class="dot" data-color=""></div>
+                <div class="dot" data-color=""></div>
+                <div class="dot" data-color=""></div>
+                <div class="dot" data-color=""></div>
+                <div class="toggle toggle-red" data-value="0"></div>
+            </div>
+            <div class="row">
+                <div class="toggle toggle-white" data-value="0"></div>
+                <div class="dot" data-color=""></div>
+                <div class="dot" data-color=""></div>
+                <div class="dot" data-color=""></div>
+                <div class="dot" data-color=""></div>
+                <div class="toggle toggle-red" data-value="0"></div>
+            </div>
+            <div class="row">
+                <div class="toggle toggle-white" data-value="0"></div>
+                <div class="dot" data-color=""></div>
+                <div class="dot" data-color=""></div>
+                <div class="dot" data-color=""></div>
+                <div class="dot" data-color=""></div>
+                <div class="toggle toggle-red" data-value="0"></div>
+            </div>
+            <div class="row">
+                <div class="toggle toggle-white" data-value="0"></div>
+                <div class="dot" data-color=""></div>
+                <div class="dot" data-color=""></div>
+                <div class="dot" data-color=""></div>
+                <div class="dot" data-color=""></div>
+                <div class="toggle toggle-red" data-value="0"></div>
+            </div>
+        </div>
+
+        <!-- Popup dialog -->
+        <dialog id="end-modal">
+            <h2 direction="right" id="end-modal-header"></h2>
+            <p id="end-modal-text"></p>
+        </dialog>
+    </body>
+</html>

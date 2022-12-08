@@ -1,0 +1,192 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+:root {
+    --bg-color: purple;
+}
+
+body {
+    background-color: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto 50px;
+    color: white;
+}
+
+#flex-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 25px;
+    background-color: wheat;
+    padding: 30px;
+    width: 250px;
+}
+.row {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+.dot {
+    height: 30px;
+    aspect-ratio: 1 / 1;
+    border-radius: 100vmax;
+    background-color: var(--bg-color);
+}
+
+.dot[data-color="white"] {
+    background-color: white;
+}
+.dot[data-color="pink"] {
+    background-color: pink;
+}
+.dot[data-color="green"] {
+    background-color: green;
+}
+.dot[data-color="red"] {
+    background-color: red;
+}
+.dot[data-color="orange"] {
+    background-color: orange;
+}
+.dot[data-color="grey"] {
+    background-color: grey;
+}
+.dot[data-color="yellow"] {
+    background-color: yellow;
+}
+.dot[data-color="blue"] {
+    background-color: blue;
+}
+
+/* Toggle */
+.toggle {
+    position: absolute;
+    top: 5px;
+    text-align: center;
+    user-select: none;
+	width: 0;
+	transition-property: width, left, right;
+	transition-duration: 0.6s;
+	transition-timing-function: ease-in;
+}
+.toggle-white {
+    background-color: white;
+    left: -100px;
+    color: black;
+}
+.toggle-red {
+    background-color: red;
+    right: -100px;
+}
+.toggle-white::before,
+.toggle-red::after {
+    /* Toggle head */
+    content: "";
+    position: absolute;
+    background-color: black;
+    width: 35px;
+    height: 20px;
+    border-radius: 100vmax;
+    z-index: -1;
+	top: 0;
+}
+.toggle-white::before {
+    left: -17.5px;
+}
+.toggle-red::after {
+    right: -17.5px;
+}
+
+.toggle:not([data-value="0"]) {
+    height: 20px;
+}
+.toggle-white[data-value="0"] {
+	left: -30px;
+}
+.toggle-red[data-value="0"] {
+	right: -30px;
+}
+.toggle-white[data-value="1"] {
+	left: -55px;
+    width: 25px;
+}
+.toggle-red[data-value="1"] {
+	right: -55px;
+    width: 25px;
+}
+.toggle-white[data-value="2"] {
+    left: -80px;
+    width: 50px;
+}
+.toggle-red[data-value="2"] {
+    right: -80px;
+    width: 50px;
+}
+.toggle-white[data-value="3"] {
+    left: -105px;
+    width: 75px;
+}
+.toggle-red[data-value="3"] {
+    right: -105px;
+    width: 75px;
+}
+.toggle-white[data-value="4"] {
+    left: -130px;
+    width: 100px;
+}
+.toggle-red[data-value="4"] {
+    right: -130px;
+    width: 100px;
+}
+
+/* Popups */
+#error-modal {
+    position: fixed;
+    z-index: 1;
+    width: fit-content;
+    border: 0;
+    top: 10px;
+    background-color: #f8d7da;
+    border-radius: 5px;
+}
+#error-modal > button {
+    display: inline;
+    border: 0;
+    background-color: transparent;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+#error-modal > p {
+    display: inline;
+}
+
+#end-modal {
+    text-align: center;
+	animation-name: popup;
+	animation-duration: 0.3s;
+	animation-timing-function: ease;
+}
+#end-modal > h2.win {
+    font-size: 3rem;
+    border: 5px dotted lime;
+}
+#end-modal > h2.lose {
+    font-size: 3rem;
+    border: 5px dotted red;
+}
+@keyframes popup {
+	from {
+		scale: 0;
+	}
+	to {
+		scale: 1;
+	}
+}
+
+.clickable {
+    cursor: pointer;
+}
