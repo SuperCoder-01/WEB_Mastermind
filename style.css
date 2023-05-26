@@ -16,6 +16,20 @@ body {
     color: white;
 }
 
+#instruction {
+    position: absolute;
+    left: 45px;
+    top: 80px;
+    width: 350px;
+    background-color: lightgreen;
+    color: black;
+    border: 1px solid black;
+    padding: 0.7cm;
+}
+#instruction > b {
+    font-size: 14pt;
+}
+
 #flex-container {
     display: flex;
     flex-direction: column;

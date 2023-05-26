@@ -65,6 +65,7 @@ document.addEventListener("keydown", key => {
                 break
             }
         }
+        if (same == true) return
     })
     if (same && currentRow > 0) {
         alert("You already guessed this combination.")
