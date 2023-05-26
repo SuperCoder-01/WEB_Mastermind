@@ -1,6 +1,6 @@
 // Setup
 const COLORS = Object.freeze(["white", "pink", "green", "red", "orange", "grey", "yellow", "blue"])
-const CODE = ["red", "pink", "blue", "white"]
+const CODE = []
 const GUESSES = []
 
 const Rows = document.querySelectorAll(".row")
@@ -16,9 +16,9 @@ const LoseSound = new Audio("./audio/Lose.mp3")
 let currentRow = 0
 let end = false
 
-// for (let i = 0; i < 4; i++) {
-//     CODE.push(COLORS[Math.floor(Math.random() * COLORS.length)])
-// }
+for (let i = 0; i < 4; i++) {
+    CODE.push(COLORS[Math.floor(Math.random() * COLORS.length)])
+}
 Object.freeze(CODE)
 ErrorModal.children[0].addEventListener("click", () => ErrorModal.close())
 setupNextRow()
