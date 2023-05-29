@@ -9,25 +9,18 @@
         <script src="script.js" defer></script>
     </head>
     <body>
-        <dialog id="error-modal">
-            <button onfocus="this.blur()">&times;</button>
-            <p>Please fill in dots for current row to continue.</p>
-        </dialog>
-
         <h1>Mastermind</h1>
 
         <!-- Instructions -->
         <div id="instruction">
             <b>How to play:</b><br />
             <ul>
-                <li>
-                    A 4-colour code is generated and you have 12 guesses to guess it. There may be
-                    two or even three of the same colour in the code.
-                </li>
+                <li>A 4-colour code is generated and you have 12 guesses to guess it. Each colour in the code is unique.</li>
                 <li>The number in the left white slider indicates the number of colours that you guessed correctly but in the wrong position.</li>
                 <li>The number in the right red slider indicates the number of colours that you guess correctly and in the correct position.</li>
                 <li>If a slider did not move, this means '0'.</li>
                 <li><i>To guess the code, click on the dots and press "Enter".</i></li>
+                <li>Please do not have two of the same colour in your guess.</li>
             </ul>
 
             <hr />

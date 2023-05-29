@@ -5,7 +5,6 @@ const GUESSES = []
 
 const Rows = document.querySelectorAll(".row")
 const Dots = document.querySelectorAll(".dot")
-const ErrorModal = document.getElementById("error-modal")
 const EndModal = document.getElementById("end-modal")
 const EndModalHeader = document.getElementById("end-modal-header")
 const EndModalText = document.getElementById("end-modal-text")
@@ -20,7 +19,6 @@ for (let i = 0; i < 4; i++) {
     CODE.push(COLORS[Math.floor(Math.random() * COLORS.length)])
 }
 Object.freeze(CODE)
-ErrorModal.children[0].addEventListener("click", () => ErrorModal.close())
 setupNextRow()
 
 // Allow dots to change color on click
@@ -40,11 +38,12 @@ Dots.forEach(dot => {
 document.addEventListener("keydown", key => {
     if (end) return
     if (key.key !== "Enter") return
-    // Check if child dots of active row is filled
+
+    // Check if dots of active row are filled
     for (const dot of Rows[currentRow].children) {
         if (dot.classList.contains("toggle")) continue
         if (dot.dataset.color == "undefined" || dot.dataset.color == "") {
-            ErrorModal.show()
+            alert("Please fill in the dots for the current row.")
             return
         }
     }
@@ -55,6 +54,13 @@ document.addEventListener("keydown", key => {
         if (!dot.classList.contains("toggle")) {
             GUESS.push(dot.dataset.color)
         }
+    }
+
+    // Check for duplicate color in the guess
+    const GUESS_SET = new Set(GUESS)
+    if (GUESS_SET.size < 4) {
+        alert("Please do not enter duplicate colours in your guess.")
+        return
     }
 
     let same = true
@@ -89,7 +95,6 @@ document.addEventListener("keydown", key => {
     }
 })
 
-// Functions
 function setupNextRow() {
     if (currentRow === 0) {
         for (const dot of Rows[currentRow].children) {
@@ -113,25 +118,27 @@ function setupNextRow() {
 
 function getClue(guess) {
     const CLUE = { white: 0, red: 0 }
-    const CLUE_STATE = {}
+    // const CLUE_STATE = {}
 
-    guess.forEach(color => {
-        CLUE_STATE[color] = false
-    })
+    // guess.forEach(color => {
+    //     CLUE_STATE[color] = false
+    // })
+    // console.log(CLUE_STATE)
 
+    // Red
     for (let i = 0; i < 4; i++) {
-        if (guess[i] == CODE[i] && CLUE_STATE[guess[i]] === false) {
+        if (guess[i] == CODE[i]/* && CLUE_STATE[guess[i]] === false*/) {
             CLUE.red++
-            CLUE_STATE[guess[i]] = true
+            // CLUE_STATE[guess[i]] = true
         }
     }
+    // White
     for (let i = 0; i < 4; i++) {
-        if (CODE.includes(guess[i]) && CODE[i] !== guess[i] && CLUE_STATE[guess[i]] === false) {
+        if (CODE.includes(guess[i]) && CODE[i] !== guess[i]/* && CLUE_STATE[guess[i]] === false*/) {
             CLUE.white++
-            CLUE_STATE[guess[i]] = true
+            // CLUE_STATE[guess[i]] = true
         }
     }
-
     return CLUE
 }
 function displayClue(clue) {
