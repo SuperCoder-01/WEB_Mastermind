@@ -1,5 +1,5 @@
-// Setup
-const COLORS = Object.freeze(["white", "pink", "green", "red", "orange", "grey", "yellow", "blue"])
+// Last modified: 2/6/23
+const COLORS = ["white", "pink", "green", "red", "orange", "grey", "yellow", "blue"]``
 const CODE = []
 const GUESSES = []
 
@@ -15,9 +15,10 @@ const LoseSound = new Audio("./audio/Lose.mp3")
 let currentRow = 0
 let end = false
 
-for (let i = 0; i < 4; i++) {
-    CODE.push(COLORS[Math.floor(Math.random() * COLORS.length)])
-}
+do {
+    let color = Math.floor(Math.random() * COLORS.length)
+    if (!(color in CODE)) CODE.push(color) // Ensure that there is no duplicate color in code
+} while (CODE.length < 4)
 Object.freeze(CODE)
 setupNextRow()
 
