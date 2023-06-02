@@ -17,7 +17,7 @@ let end = false
 
 do {
     let color = COLORS[Math.floor(Math.random() * COLORS.length)]
-    if (!(color in CODE)) CODE.push(color) // Ensure that there is no duplicate color in code
+    if (!(CODE.includes(color))) CODE.push(color) // Ensure that there is no duplicate color in code
 } while (CODE.length < 4)
 Object.freeze(CODE)
 setupNextRow()
