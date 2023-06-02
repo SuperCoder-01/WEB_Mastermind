@@ -119,25 +119,16 @@ function setupNextRow() {
 
 function getClue(guess) {
     const CLUE = { white: 0, red: 0 }
-    // const CLUE_STATE = {}
-
-    // guess.forEach(color => {
-    //     CLUE_STATE[color] = false
-    // })
-    // console.log(CLUE_STATE)
-
     // Red
     for (let i = 0; i < 4; i++) {
-        if (guess[i] == CODE[i]/* && CLUE_STATE[guess[i]] === false*/) {
+        if (guess[i] == CODE[i]) {
             CLUE.red++
-            // CLUE_STATE[guess[i]] = true
         }
     }
     // White
     for (let i = 0; i < 4; i++) {
-        if (CODE.includes(guess[i]) && CODE[i] !== guess[i]/* && CLUE_STATE[guess[i]] === false*/) {
+        if (CODE.includes(guess[i]) && CODE[i] !== guess[i]) {
             CLUE.white++
-            // CLUE_STATE[guess[i]] = true
         }
     }
     return CLUE
