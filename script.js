@@ -11,13 +11,15 @@ const EndModalText = document.getElementById("end-modal-text")
 
 const WinSound = new Audio("./audio/Win.wav")
 const LoseSound = new Audio("./audio/Lose.mp3")
+const SwitchInput = document.getElementById("switch-input")
+let sound = true
 
 let currentRow = 0
 let end = false
 
 do {
     let color = COLORS[Math.floor(Math.random() * COLORS.length)]
-    if (!(CODE.includes(color))) CODE.push(color) // Ensure that there is no duplicate color in code
+    if (!CODE.includes(color)) CODE.push(color) // Ensure that there is no duplicate color in code
 } while (CODE.length < 4)
 Object.freeze(CODE)
 setupNextRow()
@@ -33,6 +35,14 @@ Dots.forEach(dot => {
             dot.dataset.color = COLORS[COLORS.indexOf(dot.dataset.color) + 1]
         }
     })
+})
+// Allow sound toggle to change
+SwitchInput.addEventListener("change", () => {
+    if (SwitchInput.checked) {
+        sound = true
+    } else {
+        sound = false
+    }
 })
 
 // Allow user to submit guess
@@ -118,7 +128,7 @@ function setupNextRow() {
 }
 
 function getClue(guess) {
-    const CLUE = { white: 0, red: 0 }
+    const CLUE = {white: 0, red: 0}
     // Red
     for (let i = 0; i < 4; i++) {
         if (guess[i] == CODE[i]) {
@@ -154,12 +164,12 @@ function endGame(state) {
         EndModalHeader.innerText = "You won!"
         EndModalText.textContent = `You cracked the color code in ${currentRow + 1} guess(es).`
         EndModalHeader.classList.add("win")
-        WinSound.play()
+        if (sound) WinSound.play()
     } else {
         EndModalHeader.innerText = "You lost!"
         EndModalText.textContent = `The code is: ${CODE}.`
         EndModalHeader.classList.add("lose")
-        LoseSound.play()
+        if (sound) LoseSound.play()
     }
     EndModal.showModal()
 }

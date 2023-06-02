@@ -9,15 +9,31 @@
         <script src="script.js" defer></script>
     </head>
     <body>
+        <!-- Rounded switch -->
+        <label id="switch">
+            Sound
+            <input type="checkbox" id="switch-input" checked />
+            <span id="slider"></span>
+        </label>
+
         <h1>Mastermind</h1>
 
         <!-- Instructions -->
         <div id="instruction">
             <b>How to play:</b><br />
             <ul>
-                <li>A 4-colour code is generated and you have 12 guesses to guess it. Each colour in the code is unique.</li>
-                <li>The number in the left white slider indicates the number of colours that you guessed correctly but in the wrong position.</li>
-                <li>The number in the right red slider indicates the number of colours that you guess correctly and in the correct position.</li>
+                <li>
+                    A 4-colour code is generated and you have 12 guesses to guess it. Each colour in
+                    the code is unique.
+                </li>
+                <li>
+                    The number in the left white slider indicates the number of colours that you
+                    guessed correctly but in the wrong position.
+                </li>
+                <li>
+                    The number in the right red slider indicates the number of colours that you
+                    guess correctly and in the correct position.
+                </li>
                 <li>If a slider did not move, this means '0'.</li>
                 <li><i>To guess the code, click on the dots and press "Enter".</i></li>
                 <li>Please do not have two of the same colour in your guess.</li>
