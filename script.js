@@ -1,5 +1,5 @@
 // Last modified: 2/6/23
-const COLORS = ["white", "pink", "green", "red", "orange", "grey", "yellow", "blue"]``
+const COLORS = ["white", "pink", "green", "red", "orange", "grey", "yellow", "blue"]
 const CODE = []
 const GUESSES = []
 
